@@ -1,0 +1,24 @@
+# Project configuration
+general:
+  cpiApiServiceKeyCredentialsId: "freetier" 
+  integrationFlowId: "SimpleFlow"
+
+# Stage configuration
+stages:
+  uploadStage: 
+    enabled: false #(default: false) 
+  deployStage: 
+    enabled: true #(default: false) 
+  integrationTestStage: 
+    enabled: true #(default: false) 
+
+
+# Steps configuration
+steps: 
+  integrationArtifactUpload: 
+    packageId:  "TestFlow"   
+    integrationFlowName: "SimpleFlow"  
+  integrationArtifactTriggerIntegrationTest: 
+    contentType: "<application/json"     # optional, has to be specified when a messageBodyPath is defined
+    messageBodyPath: "SimpleFlow/messageBody"      # optional 
+    iFlowServiceKeyCredentialsId: "freetier"
